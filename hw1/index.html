@@ -51,15 +51,31 @@
 		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
 
 		<h2>Task 1: Drawing Single-Color Triangles</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		To rasterize a triangle, the bounding box is first calculated by finding the minimum and maximum x and y coordinates of the vertices. This allows skipping any pixels that are clearly outside the triangle's range.</p>
+		
+		The triangle's winding order is determined using a cross product so the edge tests work correctly whether the triangle is clockwise or counterclockwise. At the same time, top and left edges are determined to handle pixels that land exactly on the boundary by OPENGL Rules.</p>
+		
+		Inside the bounding box, every pixel is looped through and its center point is tested by line test. If the sign of the result shows the point is inside or exactly on for all three lines, the pixel is filled with color.</p>
+		
+		This approach is just as efficient as basic bounding box sampling because the amount of work scales directly with the size of the box. The setup tasks, like finding the winding order, only happen once per triangle. Since every pixel in the box is checked exactly once with a few quick tests, it doesn't perform any extra or unnecessary steps compared to a standard sampling method.</p>
 
+		<!-- <p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p> -->
+		<div style="display: flex; flex-direction: column; align-items: center;">
+		<td style="text-align: center;">
+			<img src="Task1.png" width="400px"/>
+			<figcaption>Fig. 1 Render of basic/test4.svg</figcaption>
+		</td>	  
+		</div>
+		
+		<h2>Task 2: Antialiasing by Supersampling</h2>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		<p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="lion.jpg" width="400px"/>
-				  <figcaption>Caption goes here.</figcaption>
+				  <img src="Task1.png" width="400px"/>
+				  <figcaption>Fig. 1 Render of basic/test4.svg</figcaption>
 				</td>
 				<td style="text-align: center;">
 				  <img src="lion.jpg" width="400px"/>
@@ -78,10 +94,6 @@
 			  </tr>
 			</table>
 		</div>
-		
-		<h2>Task 2: Antialiasing by Supersampling</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
 		<h2>Task 3: Transforms</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
